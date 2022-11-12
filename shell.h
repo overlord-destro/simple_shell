@@ -5,6 +5,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdbool.h>
 
 /*string_handling functions*/
 int _strlen(char *str);
