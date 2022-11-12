@@ -39,6 +39,29 @@ void handle_sig(int n);
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 extern char **environ;
 
+/**
+*struct info - Status
+*@final_exit: First member
+*@ln_count: Second member
+* Description: Used in error handling
+*/
+struct info
+{
+	int final_exit;
+	int ln_count;
+} info;
+
+/**
+* struct flags - Holds flags
+* @interactive: First member
+* Description: used to handle
+* boolean switches
+*/
+struct flags
+{
+	bool interactive;
+} flags;
+
 
 
 #endif /* SHELL_H */
