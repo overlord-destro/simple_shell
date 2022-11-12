@@ -48,7 +48,7 @@ void env_builtin(void)
 
 	while (env[idx])
 	{
-		write(STDOUT_FILENO, (const void *) env[idx], _strlen(env[idx]));
+		write(STDOUT_FILENO, (const void *) env[i], _strlen(env[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		idx++;
 	}

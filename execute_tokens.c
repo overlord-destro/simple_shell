@@ -71,7 +71,7 @@ void exec_cmd(char *c, char **cmd)
 		exit(98);
 	}
 	else
-		wait(status);
+		wait(&status);
 }
 
 /**

@@ -17,7 +17,7 @@ int _strlen(char *str);
 char *check_str(char *str, int ch);
 int _strcmp(char *str, char *str1);
 int _strncmp(char *str, char *str1, size_t n);
-char _strdup(char *str);
+char *_strdup(char *str);
 
 /*command_handlers*/
 char **tokenizer(char *str);

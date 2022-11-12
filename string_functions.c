@@ -13,7 +13,7 @@ int _strlen(char *str)
 	while (*str)
 	{
 		i++;
-		str++
+		str++;
 	}
 	return (i);
 }
@@ -32,6 +32,7 @@ char *check_str(char *str, int ch)
 			return (str);
 		str++;
 	}
+	return (NULL);
 }
 
 /**
@@ -49,7 +50,7 @@ int _strcmp(char *str, char *str1)
 
 	while (*str && *str1)
 	{
-		diff = *str - str1;
+		diff = *str - *str1;
 		if (diff != 0)
 			break;
 		str++;
@@ -85,7 +86,7 @@ int _strncmp(char *str, char *str1, size_t n)
 *@str: string to be replicated
 *Return: pointer to replicant, haha
 */
-char _strdup(char *str)
+char *_strdup(char *str)
 {
 	char *rep;
 	int i = 0;
@@ -99,8 +100,9 @@ char _strdup(char *str)
 
 	while (str[i] != '\0')
 	{
-		rep[i] = str[i]
+		rep[i] = str[i];
 		i++;
 	}
 	rep[i] = '\0';
+	return (rep);
 }
