@@ -19,15 +19,26 @@ int _strcmp(char *str, char *str1);
 int _strncmp(char *str, char *str1, size_t n);
 char _strdup(char *str);
 
-/*exec_commands*/
+/*command_handlers*/
 char **tokenizer(char *str);
 void exec_cmd(char *c, char **cmd);
 void free_command(char **cmd);
+void cmd_type(char **cmd, char *c);
+char *_getpath(void);
+char *append_path(char *path, char *cmd);
+char *search_path(char **p, char *cmd);
+
 
 /*builtin*/
 int builtin_checker(char **cmd, char *b);
 void logout(char **cmd, char *b);
 void env_builtin(void);
+void print_prompt(void);
+void handle_sig(int n);
+
+extern __sighandler_t signal(int __sig, __sighandler_t __handler);
+extern char **environ;
+
 
 
 #endif /* SHELL_H */
