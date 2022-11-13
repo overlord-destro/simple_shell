@@ -32,13 +32,13 @@ int main(int argc, char *argv[], char *envp[])
 		info.ln_count++;
 		if (lineptr[num_chars_read - 1] == '\n')
 			lineptr[num_chars_read - 1]  = '\0';
-		cmd = tokenize(lineptr);
+		cmd = tokenizer(lineptr);
 		if (cmd == NULL || *cmd == NULL || **cmd == '\0')
 			continue;
 		if (cmd_type(cmd, lineptr))
 			continue;
 		path = _getpath();
-		paths = tokenize(path);
+		paths = tokenizer(path);
 		pathcmd = search_path(paths, cmd[0]);
 		if (pathcmd == NULL)
 			perror(argv[0]);
@@ -52,17 +52,17 @@ int main(int argc, char *argv[], char *envp[])
 }
 
 /**
- * prompt_printer - Prints prompt
+ * print_prompt - Prints prompt
  * When shell is in interactive mode
  *
  * Return: Void
  */
-void prompt_printer(void)
+void print_prompt(void)
 {
 	if ((isatty(STDIN_FILENO) == 1) && (isatty(STDOUT_FILENO) == 1))
 		flags.interactive = 1;
 	if (flags.interactive)
-		write(STDERR_FILENO, "$ ", 2);
+		write(STDERR_FILENO, "> ", 2);
 }
 
 /**
