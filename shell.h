@@ -23,7 +23,7 @@ char *_strdup(char *str);
 char **tokenizer(char *str);
 void exec_cmd(char *c, char **cmd);
 void free_command(char **cmd);
-void cmd_type(char **cmd, char *c);
+int cmd_type(char **cmd, char *c);
 char *_getpath(void);
 char *append_path(char *path, char *cmd);
 char *search_path(char **p, char *cmd);
@@ -61,7 +61,5 @@ struct flags
 {
 	bool interactive;
 } flags;
-
-
 
 #endif /* SHELL_H */

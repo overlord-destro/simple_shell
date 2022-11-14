@@ -7,7 +7,7 @@
 */
 char **tokenizer(char *str)
 {
-	size_t idx, i = 0;
+	size_t idx = 0, i = 0;
 	int t = 1;
 	char **tokens;
 	char *buff, *token, *buffptr;
@@ -85,7 +85,7 @@ void free_command(char **cmd)
 	if (cmd == NULL)
 		return;
 
-	while (cmd != NULL)
+	while (cmd[idx])
 	{
 		free(cmd[idx]);
 		idx++;

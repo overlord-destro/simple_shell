@@ -98,10 +98,9 @@ char *_strdup(char *str)
 	if (rep == NULL)
 		return (NULL);
 
-	while (str[i] != '\0')
+	for (i = 0; *str != '\0'; str++, i++)
 	{
-		rep[i] = str[i];
-		i++;
+		rep[i] = str[0];
 	}
 	rep[i] = '\0';
 	return (rep);

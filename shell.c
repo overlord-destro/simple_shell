@@ -22,10 +22,10 @@ int main(int argc, char *argv[], char *envp[])
 	signal(SIGINT, handle_sig);
 	while (1)
 	{
-		free_cmds(cmd);
-		free_cmds(paths);
+		free_command(cmd);
+		free_command(paths);
 		free(pathcmd);
-		prompt_printer();
+		print_prompt();
 		num_chars_read = getline(&lineptr, &buffer_size, stdin);
 		if (num_chars_read < 0)
 			break;
@@ -74,20 +74,20 @@ void print_prompt(void)
 void handle_sig(int n __attribute__((unused)))
 {
 	write(STDERR_FILENO, "\n", 1);
-	write(STDERR_FILENO, "$ ", 2);
+	write(STDERR_FILENO, "> ", 2);
 }
 
 
 /**
  * cmd_type - Checks whether command is builtin or executable
  * @cmd: Pointers to command arguments
- * @b: Line pointer returned by getline function
+ * @c: Line pointer returned by getline function
  *
  * Return: 1- command executable, 0- otherwise
  */
-int cmd_type(char **cmd, char *b)
+int cmd_type(char **cmd, char *c)
 {
-	if (builtin_checker(cmd, b))
+	if (builtin_checker(cmd, c))
 	{
 		return (1);
 	}

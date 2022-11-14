@@ -9,15 +9,15 @@
 */
 int builtin_checker(char **cmd, char *b)
 {
-	char *builtin1 = "env";
-	char *builtin2 = "exit";
+	char *env = "env";
+	char *exit = "exit";
 
-	if (_strcmp(*cmd, builtin1) == 0)
+	if (_strcmp(*cmd, env) == 0)
 	{
 		env_builtin();
 		return (1);
 	}
-	else if (_strcmp(*cmd, builtin2) == 0)
+	else if (_strcmp(*cmd, exit) == 0)
 	{
 		logout(cmd, b);
 		return (1);
